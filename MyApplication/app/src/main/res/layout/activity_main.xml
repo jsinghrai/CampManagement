@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.misra.ngocampmanagement.MainActivity">
+
+    <Button
+        android:id="@+id/btn_Doctors"
+        android:layout_width="295dp"
+        android:layout_height="51dp"
+        android:text="DOCTORS"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="172dp" />
+
+    <Button
+        android:id="@+id/btn_patients"
+        android:layout_width="294dp"
+        android:layout_height="50dp"
+        android:text="PATIENTS"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="333dp" />
+</android.support.constraint.ConstraintLayout>

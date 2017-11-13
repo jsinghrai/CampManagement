@@ -1,0 +1,1 @@
+insert into Provider values ("Test", "User",1,"Doctor",231239123,"123email.com","Somewhere","Arms");

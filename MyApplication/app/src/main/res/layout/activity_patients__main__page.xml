@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.example.misra.ngocampmanagement.Patients_Main_Page">
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NAME"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="61dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <TextView
+        android:id="@+id/textView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="USER ID"
+        android:textSize="18sp"
+        tools:layout_editor_absoluteX="286dp"
+        tools:layout_editor_absoluteY="42dp" />
+
+    <Button
+        android:id="@+id/btn_make_appointment"
+        android:layout_width="181dp"
+        android:layout_height="49dp"
+        android:text="MAKE APPOINTMENT"
+        tools:layout_editor_absoluteX="117dp"
+        tools:layout_editor_absoluteY="117dp" />
+
+    <Button
+        android:id="@+id/btn_cancel_appointment"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="CANCEL APPOINTMENT"
+        tools:layout_editor_absoluteX="115dp"
+        tools:layout_editor_absoluteY="208dp" />
+
+    <Button
+        android:id="@+id/btn_upload_documents"
+        android:layout_width="176dp"
+        android:layout_height="47dp"
+        android:text="UPLOAD DOCUMENTS"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="304dp" />
+
+    <Button
+        android:id="@+id/btn_reset_password_patients"
+        android:layout_width="174dp"
+        android:layout_height="47dp"
+        android:text="RESET PASSWORD"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="399dp" />
+
+    <Button
+        android:id="@+id/btn_logout_patients"
+        android:layout_width="174dp"
+        android:layout_height="46dp"
+        android:text="LOG OUT"
+        tools:layout_editor_absoluteX="114dp"
+        tools:layout_editor_absoluteY="493dp" />
+</android.support.constraint.ConstraintLayout>
