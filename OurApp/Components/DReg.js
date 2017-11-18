@@ -7,7 +7,9 @@ import {
   View,
   Image,
   Button,
-  Alert
+  Alert,
+  TextInput,
+  ScrollView
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
@@ -18,15 +20,47 @@ export default class DReg extends Component<{}> {
   }
   static navigationOptions = { title: 'Doctor Registration', };
   render() {
+    const { navigate } = this.props.navigation;
     return (
-      <View style={styles.container}>
-
-      </View>
+      <ScrollView contentContainerStyle={styles.contentContainer}>
+        <View style={styles.container}>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your User Name'>
+          </TextInput>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your Password'>
+          </TextInput>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your Name (ex. First Last)'>
+          </TextInput>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your Hospitals Name'>
+          </TextInput>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your Speciality'>
+          </TextInput>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your Email'>
+          </TextInput>
+          <TextInput style={styles.nameInput}
+            placeholder = 'Enter your Phone number'>
+          </TextInput>
+          <View>
+            <Button
+              onPress={() => navigate('SignInDoc')}
+              title="Register"
+            />
+          </View>
+        </View>
+       </ScrollView>
     );
   }
 }
 
 const styles = StyleSheet.create({
+   contentContainer: {
+     paddingVertical: 20
+   },
   container: {
     flex: 1,
     justifyContent: 'center',

@@ -20,6 +20,9 @@ import SignInP from './Components/SignInPatient';
 import SignInD from './Components/SignInDoctor';
 import TestFile from './Components/TestFile';
 import DRegistration from './Components/DReg';
+import PRegistration from './Components/PReg';
+import PProfile from './Components/PatientProfile';
+import DProfile from './Components/DoctorProfile';
 
 const NavigationApp = StackNavigator(
   {
@@ -27,6 +30,9 @@ const NavigationApp = StackNavigator(
     SignInDoc: { screen: SignInD },
     SignInPat: { screen: SignInP },
     DocReg: { screen: DRegistration },
+    PatReg: { screen: PRegistration },
+    PPfile: { screen: PProfile },
+    DPfile: { screen: DProfile },
   }
 );
 

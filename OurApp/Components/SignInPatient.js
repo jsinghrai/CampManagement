@@ -14,6 +14,16 @@ import {
   StackNavigator
 } from 'react-navigation';
 
+import PRegistration from './PReg';
+import PProfile from './PatientProfile';
+
+const NavigationApp = StackNavigator(
+  {
+    PatReg: { screen: PRegistration },
+    PPfile: { screen: PProfile },
+  }
+);
+
 export default class SignInPatient extends Component<{}> {
   constructor(props) {
     super(props);
@@ -25,6 +35,7 @@ export default class SignInPatient extends Component<{}> {
   }
   static navigationOptions = { title: 'Patients', };
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style = {styles.container}>
         <Text style={styles.inCenter}>
@@ -38,13 +49,13 @@ export default class SignInPatient extends Component<{}> {
         </TextInput>
         <View style={styles.alternativeLayoutButtonContainer}>
           <Button
-            onPress={ this._onPressButton}
+            onPress={()=> navigate('PPfile')}
             title="Sign In"
           />
         </View>
         <View style={styles.alternativeLayoutButtonContainer}>
           <Button
-            onPress={ this._onPressButton}
+            onPress={() => navigate('PatReg')}
             title="Register"
           />
         </View>

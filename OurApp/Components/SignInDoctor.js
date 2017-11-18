@@ -15,10 +15,12 @@ import {
 } from 'react-navigation';
 
 import DRegistration from './DReg';
+import DProfile from './DoctorProfile'
 
 const NavigationApp = StackNavigator(
   {
     DocReg: { screen: DRegistration },
+    DPfile: { screen: DProfile },
   }
 );
 
@@ -31,7 +33,7 @@ export default class SignInDoctor extends Component<{}> {
   {
     Alert.alert('You tapped the button!')
   }
-  //static navigationOptions = { title: 'Doctors', };
+  static navigationOptions = { title: 'Doctors', };
   render() {
     const { navigate } = this.props.navigation;
     return (
@@ -47,7 +49,7 @@ export default class SignInDoctor extends Component<{}> {
         </TextInput>
         <View style={styles.alternativeLayoutButtonContainer}>
           <Button
-            onPress={ this._onPressButton}
+            onPress={()=> navigate('DPfile')}
             title="Sign In"
           />
         </View>

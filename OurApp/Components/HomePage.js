@@ -16,6 +16,9 @@ import {
 import SignInD from './SignInDoctor';
 import SignInP from './SignInPatient';
 import DRegistration from './DReg';
+import PRegistration from './PReg';
+import PProfile from './PatientProfile';
+import DProfile from './DoctorProfile';
 
 
 const NavigationApp = StackNavigator(
@@ -23,6 +26,9 @@ const NavigationApp = StackNavigator(
     SignInDoc: { screen: SignInD },
     SignInPat: { screen: SignInP },
     DocReg: { screen: DRegistration },
+    PatReg: { screen: PRegistration },
+    PPfile: { screen: PProfile },
+    DPfile: { screen: DProfile },
   }
 );
 
