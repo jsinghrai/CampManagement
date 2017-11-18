@@ -10,8 +10,11 @@ import {
   Alert,
   TextInput
 } from 'react-native';
+import {
+  StackNavigator
+} from 'react-navigation';
 
-export default class SignIn extends Component<{}> {
+export default class SignInPatient extends Component<{}> {
   constructor(props) {
     super(props);
     this.state = {text: ''};
@@ -20,9 +23,10 @@ export default class SignIn extends Component<{}> {
   {
     Alert.alert('You tapped the button!')
   }
+  static navigationOptions = { title: 'Patients', };
   render() {
     return (
-      <View>
+      <View style = {styles.container}>
         <Text style={styles.inCenter}>
           Please Sign In or Register!
         </Text>
@@ -37,6 +41,8 @@ export default class SignIn extends Component<{}> {
             onPress={ this._onPressButton}
             title="Sign In"
           />
+        </View>
+        <View style={styles.alternativeLayoutButtonContainer}>
           <Button
             onPress={ this._onPressButton}
             title="Register"
@@ -48,6 +54,12 @@ export default class SignIn extends Component<{}> {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
   inCenter: {
     fontSize: 20,
     textAlign: 'center'
@@ -58,11 +70,11 @@ const styles = StyleSheet.create({
     width: 250,
     borderWidth: 1,
     borderColor: 'black',
-    margin: 20
+    margin: 20,
   },
   alternativeLayoutButtonContainer:
   {
-    margin: 20,
+    margin: 30,
     flexDirection: 'row',
     justifyContent: 'space-between'
   }

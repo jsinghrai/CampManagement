@@ -9,20 +9,35 @@ import {
   Button,
   Alert
 } from 'react-native';
-import ViewContainer from './ViewContainer'
+import {
+  StackNavigator
+} from 'react-navigation';
+
 import SignInD from './SignInDoctor';
 import SignInP from './SignInPatient';
+import DRegistration from './DReg';
+
+
+const NavigationApp = StackNavigator(
+  {
+    SignInDoc: { screen: SignInD },
+    SignInPat: { screen: SignInP },
+    DocReg: { screen: DRegistration },
+  }
+);
 
 export default class HomePage extends Component<{}> {
   constructor(props) {
     super(props);
     this.state = {text: ''};
   }
+   static navigationOptions = { title: 'Home', };
   _onPressButton()
   {
     Alert.alert('You tapped the button!')
   }
   render() {
+    const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
         <Text style={styles.inCenter}>
@@ -30,13 +45,13 @@ export default class HomePage extends Component<{}> {
         </Text>
         <View style={styles.buttonContainer}>
           <Button
-            onPress={ this._onPressButton}
+            onPress={() => navigate('SignInDoc')}
             title="Doctor"
           />
         </View>
         <View style={styles.buttonContainer}>
           <Button
-            onPress= {this._onPressButton}
+            onPress={() => navigate('SignInPat')}
             title="Patient"
           />
         </View>
@@ -53,10 +68,14 @@ const styles = StyleSheet.create({
   container: {
    flex: 1,
    justifyContent: 'center',
+   alignItems: 'center',
+   backgroundColor: '#F5FCFF',
    //backgroundColor: '#F5FCFF'
   },
   buttonContainer: {
-    margin: 20
+    margin: 30,
+    flexDirection: 'column',
+    justifyContent: 'space-between'
   },
   alternativeLayoutButtonContainer: {
     margin: 20,
