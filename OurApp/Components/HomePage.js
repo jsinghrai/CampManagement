@@ -19,6 +19,14 @@ import DRegistration from './DReg';
 import PRegistration from './PReg';
 import PProfile from './PatientProfile';
 import DProfile from './DoctorProfile';
+import MakeAppt from './MakeAppointment';
+import CancelAppt from './CancelAppointment';
+import upload from './UploadDoc';
+import reset from './ResetPass';
+import MakeEvt from './CreateEvent';
+import CancelEvt from './CancelEvent';
+import viewApt from './ViewAppts';
+import viewDocs from './ViewDocs';
 
 
 const NavigationApp = StackNavigator(
@@ -29,6 +37,14 @@ const NavigationApp = StackNavigator(
     PatReg: { screen: PRegistration },
     PPfile: { screen: PProfile },
     DPfile: { screen: DProfile },
+    Appointment: { screen: MakeAppt },
+    CancelApp: { screen: CancelAppt },
+    up: { screen: upload},
+    Rpass: { screen: reset},
+    MEvent: { screen: MakeEvt },
+    CEvent: { screen: CancelEvt },
+    VAppt: { screen: viewApt},
+    VDocs: { screen: viewDocs},
   }
 );
 

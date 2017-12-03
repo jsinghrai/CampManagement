@@ -16,11 +16,19 @@ import {
 
 import PRegistration from './PReg';
 import PProfile from './PatientProfile';
+import MakeAppt from './MakeAppointment';
+import CancelAppt from './CancelAppointment';
+import upload from './UploadDoc';
+import reset from './ResetPass';
 
 const NavigationApp = StackNavigator(
   {
     PatReg: { screen: PRegistration },
     PPfile: { screen: PProfile },
+    Appointment: { screen: MakeAppt },
+    CancelApp: { screen: CancelAppt },
+    up: { screen: upload},
+    Rpass: { screen: reset},
   }
 );
 

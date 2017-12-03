@@ -14,7 +14,6 @@ import {
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
 
-
 import HomePage from './Components/HomePage';
 import SignInP from './Components/SignInPatient';
 import SignInD from './Components/SignInDoctor';
@@ -23,6 +22,14 @@ import DRegistration from './Components/DReg';
 import PRegistration from './Components/PReg';
 import PProfile from './Components/PatientProfile';
 import DProfile from './Components/DoctorProfile';
+import MakeAppt from './Components/MakeAppointment';
+import CancelAppt from './Components/CancelAppointment';
+import upload from './Components/UploadDoc';
+import reset from './Components/ResetPass';
+import MakeEvt from './Components/CreateEvent';
+import CancelEvt from './Components/CancelEvent';
+import viewApt from './Components/ViewAppts';
+import viewDocs from './Components/ViewDocs';
 
 const NavigationApp = StackNavigator(
   {
@@ -33,6 +40,14 @@ const NavigationApp = StackNavigator(
     PatReg: { screen: PRegistration },
     PPfile: { screen: PProfile },
     DPfile: { screen: DProfile },
+    Appointment: { screen: MakeAppt },
+    CancelApp: { screen: CancelAppt },
+    up: { screen: upload},
+    Rpass: { screen: reset},
+    MEvent: { screen: MakeEvt },
+    CEvent: { screen: CancelEvt },
+    VAppt: { screen: viewApt},
+    VDocs: { screen: viewDocs},
   }
 );
 

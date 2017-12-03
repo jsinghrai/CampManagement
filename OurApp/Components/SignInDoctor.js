@@ -15,12 +15,20 @@ import {
 } from 'react-navigation';
 
 import DRegistration from './DReg';
-import DProfile from './DoctorProfile'
+import DProfile from './DoctorProfile';
+import MakeEvt from './CreateEvent';
+import CancelEvt from './CancelEvent';
+import viewApt from './ViewAppts';
+import viewDocs from './ViewDocs';
 
 const NavigationApp = StackNavigator(
   {
     DocReg: { screen: DRegistration },
     DPfile: { screen: DProfile },
+    MEvent: { screen: MakeEvt },
+    CEvent: { screen: CancelEvt },
+    VAppt: { screen: viewApt},
+    VDocs: { screen: viewDocs},
   }
 );
 
