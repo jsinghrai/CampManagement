@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+
+    tools:context="com.hospital.hospitalapp.doctormodule.DoctorSignUp">
+
+    <EditText
+        android:id="@+id/et_patient_username"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:ems="10"
+        android:hint="@string/username"
+        android:inputType="textPersonName"
+        android:layout_alignParentTop="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="61dp"
+        android:layout_marginStart="61dp"
+        android:layout_marginTop="20dp"/>
+
+    <EditText
+        android:id="@+id/et_patient_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/email"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/et_patient_username"
+        android:layout_alignLeft="@+id/et_patient_username"
+        android:layout_alignStart="@+id/et_patient_username"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_patient_phone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/mobile"
+        android:inputType="phone"
+        android:layout_below="@+id/et_patient_email"
+        android:layout_alignLeft="@+id/et_patient_password"
+        android:layout_alignStart="@+id/et_patient_password"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_patient_password"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/password"
+        android:inputType="textPassword"
+        android:layout_below="@+id/et_patient_phone"
+        android:layout_alignLeft="@+id/et_patient_email"
+        android:layout_alignStart="@+id/et_patient_email"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_patient_age"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/age"
+        android:inputType="number"
+        android:layout_below="@+id/et_patient_password"
+        android:layout_alignLeft="@+id/et_patient_password"
+        android:layout_alignStart="@+id/et_patient_password"
+        android:layout_marginTop="10dp"/>
+
+    <EditText
+        android:id="@+id/et_patient_address"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="@string/address"
+        android:inputType="textPersonName"
+        android:layout_below="@+id/et_patient_age"
+        android:layout_alignLeft="@+id/et_patient_age"
+        android:layout_alignStart="@+id/et_patient_age"
+        android:layout_marginTop="10dp"/>
+
+    <Button
+        android:id="@+id/btn_patient_signup"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="54dp"
+        android:layout_marginRight="54dp"
+        android:text="SignUp"
+        tools:text="@string/doctorsignuo"
+        android:layout_below="@+id/et_patient_address"
+        android:layout_alignRight="@+id/et_patient_address"
+        android:layout_alignEnd="@+id/et_patient_address"
+        android:layout_marginTop="18dp"
+        android:textColor="#ffffff"
+        android:background="@drawable/buttonrounded"/>
+
+    <Button
+        android:id="@+id/btn_Cancel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignEnd="@+id/btn_patient_signup"
+        android:layout_alignRight="@+id/btn_patient_signup"
+        android:layout_below="@+id/btn_patient_signup"
+        android:layout_marginTop="31dp"
+        android:text="Login"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"/>
+
+
+</RelativeLayout>

@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.hospital.hospitalapp.doctormodule.DoctorDisplayActivity">
+
+
+    <Button
+        android:id="@+id/btn_cancel_event"
+        android:layout_width="match_parent"
+        android:layout_height="45dp"
+        android:text="CANCEL Appointment"
+        tools:layout_editor_absoluteX="122dp"
+        tools:layout_editor_absoluteY="192dp"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <TextView
+        android:id="@+id/tv_dname"
+        android:layout_width="100dp"
+        android:layout_height="48dp"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="24dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="14dp"
+        android:text="TextView"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"/>
+
+    <TextView
+        android:id="@+id/tv_uid"
+        android:layout_width="50dp"
+        android:layout_height="wrap_content"
+        android:text="TextView"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"
+        android:textStyle="bold"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:layout_marginRight="28dp"
+        android:layout_marginEnd="28dp"
+        android:layout_alignBaseline="@+id/tv_dname"
+        android:layout_alignBottom="@+id/tv_dname"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
+
+    <Button
+        android:id="@+id/btn_view_appointments"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="View appointments"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"
+        android:layout_marginBottom="19dp"
+        android:layout_above="@+id/btn_cancel_event"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <Button
+        android:id="@+id/btn_view_documents"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="documents"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"
+        android:layout_above="@+id/btn_view_appointments"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="14dp"
+        android:visibility="gone"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+
+    <Button
+        android:id="@+id/btn_logout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="46dp"
+        android:text="Logout"
+        android:background="@drawable/buttonrounded"
+        android:textColor="#ffffff"
+        android:layout_below="@+id/btn_cancel_event"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"/>
+</RelativeLayout>

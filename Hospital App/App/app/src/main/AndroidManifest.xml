@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.hospital.hospitalapp">
+
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.CAMERA" />
+
+    <uses-permission-sdk-23 android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
+        <activity
+            android:name=".doctormodule.DoctorSignUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".patientmodule.PatientSignUp"
+            android:screenOrientation="portrait"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".ForgotPassword" >
+
+            </activity>
+        <activity android:name=".LoginActivity"
+            android:screenOrientation="portrait">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+
+        </activity>
+        <activity android:name=".doctormodule.DoctorListActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".patientmodule.MyCalendarActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".uploadviewdocuments.UploadActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".doctormodule.DoctorCalendarActivtiy"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".doctormodule.DoctorDisplayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".patientmodule.PatientDisplayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".uploadviewdocuments.ImageListView"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".doctormodule.CancelPatientAppoints"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".doctormodule.viewdocs.ShowDocuments"
+            android:screenOrientation="portrait">
+
+        </activity>
+        <activity android:name=".patientmodule.statuslist.PatientAppointmentStatus"
+            android:screenOrientation="portrait">
+
+        </activity>
+    </application>
+
+</manifest>
