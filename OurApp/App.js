@@ -50,7 +50,8 @@ const NavigationApp = StackNavigator(
     VDocs: { screen: viewDocs},
   }
 );
-
+var SQLite = require('react-native-sqlite-storage')
+var db = SQLite.openDatabase({name: 'test.db', createFromLocation: '~CMS.db'})
 export default class App extends Component<{}> {
   render() {
     return (

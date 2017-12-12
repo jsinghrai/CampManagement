@@ -14,10 +14,26 @@ import {
   StackNavigator
 } from 'react-navigation';
 
+var SQLite = require('react-native-sqlite-storage')
+var db = SQLite.openDatabase({name: 'test.db', createFromLocation: '~CMS.db'})
+
 export default class CreateEvent extends Component<{}> {
-  constructor(props) {
-    super(props);
-    this.state = {text: ''};
+  constructor(props)
+  {
+    super(props)
+    this.state = {
+      testing: "",
+    };
+
+    db.transaction((tx) => {
+      tx.executeSql('SELECT * FROM Patient WHERE P_Name=?', ['Jaspal'], (tx, results) => {
+        var len = results.rows.length;
+        if(len > 0){
+          var row = results.rows.item(0);
+          this.setState({testing: row.P_Email});
+        }
+      });
+    });
   }
   _onPressButton()
   {
@@ -28,6 +44,8 @@ export default class CreateEvent extends Component<{}> {
     const { navigate } = this.props.navigation;
     return (
       <View style={styles.container}>
+          <Text>SQLite Example</Text>
+          <Text>{'Jaspal \'s email is ' + this.state.testing}</Text>
       </View>
     );
   }

@@ -8,7 +8,8 @@ import {
   Image,
   Button,
   Alert,
-  TextInput
+  TextInput,
+  ToastAndroid
 } from 'react-native';
 import {
   StackNavigator
@@ -32,15 +33,60 @@ const NavigationApp = StackNavigator(
   }
 );
 
+var SQLite = require('react-native-sqlite-storage')
+var db = SQLite.openDatabase({name: 'test.db', createFromLocation: '~CMS.db'}, this.openCB, this.errorCB)
+
 export default class SignInPatient extends Component<{}> {
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {userid: '',
+      passd: '',
+      testing: ''
+    };
   }
-  _onPressButton()
+  errorCB(err)
   {
-    Alert.alert('You tapped the button!')
+    ToastAndroid.show("SQL Error: " + err, ToastAndroid.SHORT);
   }
+
+  sucessCB()
+  {
+    ToastAndroid.show("SQL executed ok", ToastAndroid.SHORT);
+  }
+
+  openCB()
+  {
+    console.log("SQL executed fine");
+  }
+
+  onPressButton=(navigate) => {
+    if(this.state.userid == '')
+    {
+      msg = "Please Input your Username";
+      ToastAndroid.show(msg, ToastAndroid.SHORT);
+    }
+    else if(this.state.passd == '')
+    {
+      msg = "Please Input your Password";
+      ToastAndroid.show(msg, ToastAndroid.SHORT);
+    }
+    else {
+      db.transaction((tx) => {
+        tx.executeSql('SELECT * FROM Credentials WHERE C_UserID=? AND C_passHash=?', [this.state.userid, this.state.passd], (tx, results) => {
+          var len = results.rows.length;
+          if(len > 0){
+            ToastAndroid.show("Successful Sign In for "+ this.state.userid, ToastAndroid.SHORT);
+            this.setState({testing: "successful"});
+          } else {
+            ToastAndroid.show("Sign In failed for "+ this.state.userid, ToastAndroid.SHORT);
+            return;
+          }
+          navigate('PPfile');
+        });
+      });
+    }
+  }
+
   static navigationOptions = { title: 'Patients', };
   render() {
     const { navigate } = this.props.navigation;
@@ -50,14 +96,17 @@ export default class SignInPatient extends Component<{}> {
           Please Sign In or Register!
         </Text>
         <TextInput style={styles.nameInput}
-          placeholder = 'Enter your username/Email'>
-        </TextInput>
+          placeholder = 'Enter your username/Email'
+          onChangeText={(userid) => this.setState({userid})}
+        />
         <TextInput style={styles.nameInput}
-          placeholder = 'Enter your Password'>
-        </TextInput>
+          placeholder = 'Enter your Password'
+          onChangeText={(passd) => this.setState({passd})}
+        />
         <View style={styles.alternativeLayoutButtonContainer}>
           <Button
-            onPress={()=> navigate('PPfile')}
+            onPress={() => this.onPressButton(navigate)}
+            //onPress={()=> navigate('PPfile')}
             title="Sign In"
           />
         </View>

@@ -9,45 +9,101 @@ import {
   Button,
   Alert,
   TextInput,
-  ScrollView
+  ScrollView,
+  ToastAndroid
 } from 'react-native';
 import {StackNavigator} from 'react-navigation';
+
+var SQLite = require('react-native-sqlite-storage')
+var db = SQLite.openDatabase({name: 'test.db', createFromLocation: '~CMS.db'}, this.openCB, this.errorCB)
 
 export default class DReg extends Component<{}> {
   constructor(props) {
     super(props);
-    this.state = {text: ''};
+    this.state = {username: '',
+    passd: '',
+    name: '',
+    hname: '',
+    speciality: '',
+    email: '',
+    pnumber: '',
+    salt: 'testing'
+    };
+  }
+  errorCB(err)
+  {
+    ToastAndroid.show("SQL Error: " + err, ToastAndroid.SHORT);
+  }
+  sucessCB()
+  {
+    ToastAndroid.show("SQL executed ok", ToastAndroid.SHORT);
+  }
+  openCB()
+  {
+    console.log("SQL executed fine");
   }
   static navigationOptions = { title: 'Doctor Registration', };
+  onPressButton=(navigate) => {
+    //ToastAndroid.show("Registering: " + this.state.username , ToastAndroid.SHORT);
+    //var sql = 'INSERT INTO Patient VALUES(\''+this.state.username+'\',\''+this.state.username+'\',\''+this.state.name+'\',\''+this.state.address+'\',\''+this.state.pnumber+'\',\''+this.state.email+'\',\''+this.state.age+'\'';
+    //ToastAndroid.show(sql, ToastAndroid.SHORT);
+    db.transaction((tx) => {
+      //tx.executeSql('SELECT * FROM Patient WHERE P_Name=?', ['Jaspal'], (tx, results) => {
+      //var sql = 'INSERT INTO Patient VALUES(\''+this.state.username+'\',\''+this.state.username+'\',\''+this.state.name+'\',\''+this.state.address+'\',\''+this.state.pnumber+'\',\''+this.state.email+'\',\''+this.state.age+'\')';
+      //ToastAndroid.show(sql, ToastAndroid.SHORT);
+      tx.executeSql('INSERT INTO Provider VALUES(?,?,?,?,?,?,?)', [this.state.username, this.state.username, this.state.name, this.state.hname, this.state.speciality, this.state.email, this.state.pnumber], (tx, results) => {
+        //ToastAndroid.show(sql, ToastAndroid.SHORT);
+        ToastAndroid.show('resultSet.insertId: ' + resultSet.insertId, ToastAndroid.SHORT);
+        ToastAndroid.show('resultSet.rowsAffected: ' + resultSet.rowsAffected, ToastAndroid.SHORT);
+      });
+    });
+    db.transaction((tx) => {
+      tx.executeSql('INSERT INTO Credentials VALUES(?,?,?,?)', [this.state.username, this.state.passd, this.state.salt, 'P'], (tx, results) => {
+        ToastAndroid.show('resultSet.insertId: ' + resultSet.insertId, ToastAndroid.SHORT);
+        ToastAndroid.show('resultSet.rowsAffected: ' + resultSet.rowsAffected, ToastAndroid.SHORT);
+      });
+    });
+    //<Text>{'Result type is  ' + typeof tt}</Text>
+    ToastAndroid.show("Registering " + this.state.username, ToastAndroid.SHORT);
+    navigate('SignInDoc')
+  }
+
   render() {
     const { navigate } = this.props.navigation;
     return (
       <ScrollView contentContainerStyle={styles.contentContainer}>
         <View style={styles.container}>
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your User Name'>
-          </TextInput>
+            placeholder = 'Enter your User Name'
+            onChangeText={(username) => this.setState({username})}
+          />
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your Password'>
-          </TextInput>
+            placeholder = 'Enter your Password'
+            onChangeText={(passd) => this.setState({passd})}
+          />
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your Name (ex. First Last)'>
-          </TextInput>
+            placeholder = 'Enter your Name (ex. First Last)'
+            onChangeText={(name) => this.setState({name})}
+          />
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your Hospitals Name'>
-          </TextInput>
+            placeholder = 'Enter your Hospital Name'
+            onChangeText={(hname) => this.setState({hname})}
+          />
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your Speciality'>
-          </TextInput>
+            placeholder = 'Enter your Speciality'
+            onChangeText={(speciality) => this.setState({speciality})}
+          />
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your Email'>
-          </TextInput>
+            placeholder = 'Enter your Email'
+            onChangeText={(email) => this.setState({email})}
+          />
           <TextInput style={styles.nameInput}
-            placeholder = 'Enter your Phone number'>
-          </TextInput>
+            placeholder = 'Enter your Phone number'
+            onChangeText={(pnumber) => this.setState({pnumber})}
+          />
           <View>
             <Button
-              onPress={() => navigate('SignInDoc')}
+              onPress={() => this.onPressButton(navigate)}
               title="Register"
             />
           </View>
